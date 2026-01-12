@@ -167,18 +167,89 @@
 
     /* HERO */
     .hero {
-      padding: 90px 0;
+      padding: 60px 0 40px;
       background: linear-gradient(to bottom, #111, #000);
     }
-    .hero h1 {
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-text h1 {
       font-size: 56px;
       font-weight: 800;
       margin-bottom: 16px;
+      line-height: 1.1;
     }
-    .hero p {
+    .hero-text p {
       color: #aaa;
-      max-width: 600px;
+      font-size: 18px;
       margin-bottom: 28px;
+      max-width: 500px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .hero-banner {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a4a5c 0%, #1a1a2e 100%);
+      padding: 60px 40px;
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+    .banner-tag {
+      font-size: 14px;
+      color: #06b6d4;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .banner-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .banner-title span {
+      color: #06b6d4;
+    }
+    .banner-subtitle {
+      font-size: 16px;
+      color: #aaa;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+    .banner-image {
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 350px;
+      height: 350px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .banner-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .trust-badge {
+      font-size: 14px;
+      color: #aaa;
+    }
+    .trust-badge strong {
+      color: #dc2626;
     }
 
     /* FEATURES */
@@ -201,6 +272,94 @@
     .feature p {
       font-size: 12px;
       color: #777;
+    }
+
+    /* WHY CHOOSE SECTION */
+    .why-choose {
+      padding: 80px 0;
+      background: #000;
+    }
+    .why-choose-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .why-choose-header h2 {
+      font-size: 42px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .why-choose-header h2 span {
+      color: #06b6d4;
+    }
+    .why-choose-header p {
+      color: #777;
+      font-size: 16px;
+    }
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .why-card {
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 20px;
+      padding: 40px 32px;
+      transition: .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #06b6d4, #0891b2);
+      opacity: 0;
+      transition: .3s;
+    }
+    .why-card:hover {
+      border-color: #06b6d4;
+      transform: translateY(-8px);
+    }
+    .why-card:hover::before {
+      opacity: 1;
+    }
+    .why-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: rgba(6, 182, 212, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+    .why-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .why-card p {
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .why-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .why-tag {
+      background: #111;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #06b6d4;
+      border: 1px solid #1a1a1a;
     }
 
     /* PRODUCTS */
@@ -968,7 +1127,12 @@
       .products-grid { grid-template-columns: 1fr; }
       .product-detail { grid-template-columns: 1fr; }
       .feature-list { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 40px; }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero-text h1 { font-size: 40px; }
+      .hero-banner { padding: 40px 30px; }
+      .banner-title { font-size: 36px; }
+      .banner-image { display: none; }
+      .why-choose-grid { grid-template-columns: 1fr; }
       .search-bar { max-width: 200px; }
       .nav { gap: 12px; }
       .dashboard-grid { grid-template-columns: 1fr; }
@@ -1024,12 +1188,38 @@
 <div id="mainContent">
   <section class="hero">
     <div class="container">
-      <small style="color:#dc2626;font-weight:600;">✔ Trusted by 1200+ customers</small>
-      <h1>MARGA2HIGH</h1>
-      <p>Premium products, clean design, and a checkout that just works.</p>
-      <button class="btn btn-red">Shop Best Sellers</button>
-      <button class="btn btn-dark">Join Discord</button>
-      <p style="margin-top:16px;color:#facc15;">⭐ 4.97 / 5 average rating</p>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="trust-badge">
+            <small style="color:#dc2626;font-weight:600;">✔ Trusted by <strong>1200+</strong> customers</small>
+          </div>
+          <h1>MARGA2HIGH</h1>
+          <p>Premium products, clean design, and a checkout that just works.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-red">Shop Best Sellers</button>
+            <button class="btn btn-dark">Join Discord</button>
+          </div>
+          <p style="color:#facc15;font-size:14px;">⭐ 4.97 / 5 average rating</p>
+        </div>
+
+        <div class="hero-banner">
+          <div class="banner-content">
+            <div class="banner-tag">
+              🎮 MARGA2HIGH - Your #1 Provider
+            </div>
+            <h2 class="banner-title">
+              Market Leading<br>
+              Software <span>Provider</span>
+            </h2>
+            <p class="banner-subtitle">
+              Your #1 trusted cheat provider, offering high-quality, reliable products for amazing prices with top-notch customer support.
+            </p>
+          </div>
+          <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400" alt="Gaming">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1049,6 +1239,48 @@
     <div class="feature">
       <h3>🛡 Top-rated Support</h3>
       <p>We've got your back</p>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="why-choose">
+    <div class="container">
+      <div class="why-choose-header">
+        <h2>Why Choose <span>Marga2high</span>?</h2>
+        <p>Premium products, secure checkout, and instant fulfillment.</p>
+      </div>
+
+      <div class="why-choose-grid">
+        <div class="why-card">
+          <div class="why-icon">🎧</div>
+          <h3>24/7 • 365 Support</h3>
+          <p>Real humans on standby-any time. Get fast help for installs, updates, and troubleshooting.</p>
+          <div class="why-tags">
+            <span class="why-tag">Live help</span>
+            <span class="why-tag">Quick response</span>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🛡️</div>
+          <h3>Safety & Quality</h3>
+          <p>Secure checkout, undetected builds, and rigorous QA so you get stable, high-performing tools.</p>
+          <div class="why-tags">
+            <span class="why-tag">Secure checkout</span>
+            <span class="why-tag">Undetected builds</span>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">⚡</div>
+          <h3>Instant Delivery</h3>
+          <p>Immediate access after payment. Download and start using within seconds.</p>
+          <div class="why-tags">
+            <span class="why-tag">Instant Access</span>
+            <span class="why-tag">No delays</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1301,7 +1533,7 @@
 
 <script>
   // ==================== CONFIGURATION ====================
-  const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1460261127630880840/9lsGMgWVgtYcxLJFfhYWDgDGi37fBZkZJY2OvqhQFc-Blz51C2caseVilqKXYW8x-tNB'; // Ganti dengan webhook Discord Anda
+  const DISCORD_WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL_HERE'; // Ganti dengan webhook Discord Anda
 
   // ==================== GLOBAL STATE ====================
   let currentUser = null;
@@ -1976,7 +2208,7 @@
     formData.append('file', blob, 'payment_proof.png');
 
     // Send to webhook
-    if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !== 'https://discord.com/api/webhooks/1460261127630880840/9lsGMgWVgtYcxLJFfhYWDgDGi37fBZkZJY2OvqhQFc-Blz51C2caseVilqKXYW8x-tNB') {
+    if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
       try {
         await fetch(DISCORD_WEBHOOK_URL, {
           method: 'POST',
@@ -2053,9 +2285,8 @@
     showAlert('License copied to clipboard!', 'success');
   }
 
-  // ==================== DISCORD WEBHOOK SIMULATION ====================
-  // In production, you'll handle approval through Discord bot
-  // This is a simulation function for testing
+  // ==================== DISCORD BOT INTEGRATION ====================
+  // Functions untuk Discord Bot
   window.approveOrder = function(orderId, license) {
     let orders = JSON.parse(localStorage.getItem('orders') || '[]');
     const orderIndex = orders.findIndex(o => o.id === orderId);
@@ -2063,12 +2294,22 @@
     if (orderIndex > -1) {
       orders[orderIndex].status = 'done';
       orders[orderIndex].license = license;
+      orders[orderIndex].approvedAt = new Date().toISOString();
       localStorage.setItem('orders', JSON.stringify(orders));
+      
+      console.log('✅ Order approved:', orderId);
+      console.log('🔑 License:', license);
       
       if (currentUser && currentUser.id === orders[orderIndex].userId) {
         renderOrders();
+        showAlert('Order approved successfully!', 'success');
       }
+      
+      return { success: true, order: orders[orderIndex] };
     }
+    
+    console.error('❌ Order not found:', orderId);
+    return { success: false, error: 'Order not found' };
   };
 
   window.declineOrder = function(orderId) {
@@ -2077,13 +2318,36 @@
     
     if (orderIndex > -1) {
       orders[orderIndex].status = 'declined';
+      orders[orderIndex].declinedAt = new Date().toISOString();
       localStorage.setItem('orders', JSON.stringify(orders));
+      
+      console.log('❌ Order declined:', orderId);
       
       if (currentUser && currentUser.id === orders[orderIndex].userId) {
         renderOrders();
+        showAlert('Order declined', 'error');
       }
+      
+      return { success: true, order: orders[orderIndex] };
     }
+    
+    console.error('❌ Order not found:', orderId);
+    return { success: false, error: 'Order not found' };
   };
+
+  // API Endpoint untuk Discord Bot (jika pakai backend)
+  window.addEventListener('message', (event) => {
+    // Security: Validate origin
+    if (event.origin !== window.location.origin) return;
+    
+    const { type, orderId, license } = event.data;
+    
+    if (type === 'APPROVE_ORDER') {
+      approveOrder(orderId, license);
+    } else if (type === 'DECLINE_ORDER') {
+      declineOrder(orderId);
+    }
+  });
 
   // ==================== ALERTS ====================
   function showAlert(message, type = 'success') {
