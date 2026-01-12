@@ -44,6 +44,7 @@
       font-weight: 800;
       font-size: 20px;
       letter-spacing: 1px;
+      cursor: pointer;
     }
     .nav {
       display: flex;
@@ -98,6 +99,47 @@
       justify-content: center;
       font-size: 11px;
       font-weight: 700;
+    }
+
+    .user-menu {
+      position: relative;
+    }
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #dc2626;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .user-dropdown {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 180px;
+      display: none;
+    }
+    .user-dropdown.active {
+      display: block;
+    }
+    .user-dropdown-item {
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .user-dropdown-item:hover {
+      background: #1a1a1a;
     }
 
     /* SEARCH BAR */
@@ -240,6 +282,164 @@
       font-size: 24px;
       cursor: pointer;
       z-index: 101;
+    }
+
+    /* AUTH MODAL */
+    .auth-modal-content {
+      max-width: 450px;
+      margin: 100px auto;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 20px;
+      padding: 40px;
+    }
+    .auth-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .auth-subtitle {
+      text-align: center;
+      color: #777;
+      margin-bottom: 32px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #aaa;
+    }
+    .form-input {
+      width: 100%;
+      background: #111;
+      border: 1px solid #1a1a1a;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+    .form-input:focus {
+      border-color: #06b6d4;
+    }
+    .form-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+    .auth-switch {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+    .auth-switch a {
+      color: #06b6d4;
+      cursor: pointer;
+    }
+    .auth-switch a:hover {
+      text-decoration: underline;
+    }
+
+    /* DASHBOARD */
+    .dashboard {
+      padding: 80px 0;
+      min-height: 80vh;
+    }
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .dashboard-title {
+      font-size: 32px;
+      font-weight: 800;
+    }
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+    }
+    .order-card {
+      background: #0c0c0c;
+      border: 1px solid #1a1a1a;
+      border-radius: 18px;
+      padding: 24px;
+    }
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .order-id {
+      font-size: 12px;
+      color: #666;
+    }
+    .order-status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-waiting {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+    }
+    .status-done {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+    .status-declined {
+      background: rgba(220, 38, 38, 0.2);
+      color: #dc2626;
+    }
+    .order-product {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .order-variant {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .order-price {
+      color: #06b6d4;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .order-license {
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 16px;
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 14px;
+    }
+    .license-label {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .copy-btn {
+      background: #111;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 8px;
     }
 
     /* PRODUCT DETAIL */
@@ -661,6 +861,93 @@
     .payment-instructions li {
       margin-bottom: 8px;
     }
+    .upload-proof {
+      margin-top: 24px;
+      text-align: center;
+    }
+    .upload-proof h4 {
+      margin-bottom: 12px;
+    }
+    .file-upload-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .file-upload-input {
+      display: none;
+    }
+    .file-upload-btn {
+      background: #111;
+      border: 2px dashed #1a1a1a;
+      color: #fff;
+      padding: 40px 60px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: .2s;
+      display: inline-block;
+    }
+    .file-upload-btn:hover {
+      border-color: #06b6d4;
+    }
+    .file-preview {
+      max-width: 300px;
+      margin: 16px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      display: none;
+    }
+    .file-preview img {
+      width: 100%;
+      height: auto;
+    }
+    .submit-payment-btn {
+      background: #06b6d4;
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 16px;
+    }
+    .submit-payment-btn:disabled {
+      background: #333;
+      cursor: not-allowed;
+    }
+
+    /* ALERT */
+    .alert {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 16px 20px;
+      z-index: 300;
+      display: none;
+      min-width: 300px;
+    }
+    .alert.show {
+      display: block;
+      animation: slideIn 0.3s;
+    }
+    .alert-success {
+      border-color: #22c55e;
+    }
+    .alert-error {
+      border-color: #dc2626;
+    }
+    .alert-warning {
+      border-color: #fbbf24;
+    }
+    @keyframes slideIn {
+      from {
+        transform: translateX(400px);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
 
     /* FOOTER */
     footer {
@@ -672,6 +959,10 @@
       font-size: 13px;
     }
 
+    .hidden {
+      display: none !important;
+    }
+
     @media (max-width: 900px) {
       .features { grid-template-columns: repeat(2,1fr); }
       .products-grid { grid-template-columns: 1fr; }
@@ -680,6 +971,7 @@
       .hero h1 { font-size: 40px; }
       .search-bar { max-width: 200px; }
       .nav { gap: 12px; }
+      .dashboard-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -688,7 +980,7 @@
 
 <header>
   <div class="container header-inner">
-    <div class="logo">🎮 MARGA2HIGH</div>
+    <div class="logo" onclick="goToHome()">🎮 MARGA2HIGH</div>
     <div class="nav">
       <div class="search-bar">
         <span>🔍</span>
@@ -696,53 +988,144 @@
       </div>
       <a href="#">Terms</a>
       <a href="#">Reviews</a>
-      <div class="cart-icon" onclick="toggleCart()">
-        🛒
-        <span class="cart-badge" id="cartBadge">0</span>
+      
+      <!-- Not Logged In -->
+      <div id="navGuest">
+        <div class="cart-icon" onclick="toggleCart()">
+          🛒
+          <span class="cart-badge" id="cartBadge">0</span>
+        </div>
+        <button class="btn btn-cyan" onclick="openAuthModal('login')">Login</button>
       </div>
-      <button class="btn btn-cyan">Customer Login</button>
+
+      <!-- Logged In -->
+      <div id="navUser" class="hidden">
+        <div class="cart-icon" onclick="toggleCart()">
+          🛒
+          <span class="cart-badge" id="cartBadgeUser">0</span>
+        </div>
+        <div class="user-menu">
+          <div class="user-avatar" onclick="toggleUserMenu()" id="userAvatar">U</div>
+          <div class="user-dropdown" id="userDropdown">
+            <div class="user-dropdown-item" onclick="goToDashboard()">
+              📊 Dashboard
+            </div>
+            <div class="user-dropdown-item" onclick="logout()">
+              🚪 Logout
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <small style="color:#dc2626;font-weight:600;">✔ Trusted by 1200+ customers</small>
-    <h1>MARGA2HIGH</h1>
-    <p>Premium products, clean design, and a checkout that just works.</p>
-    <button class="btn btn-red">Shop Best Sellers</button>
-    <button class="btn btn-dark">Join Discord</button>
-    <p style="margin-top:16px;color:#facc15;">⭐ 4.97 / 5 average rating</p>
-  </div>
-</section>
+<!-- Main Content -->
+<div id="mainContent">
+  <section class="hero">
+    <div class="container">
+      <small style="color:#dc2626;font-weight:600;">✔ Trusted by 1200+ customers</small>
+      <h1>MARGA2HIGH</h1>
+      <p>Premium products, clean design, and a checkout that just works.</p>
+      <button class="btn btn-red">Shop Best Sellers</button>
+      <button class="btn btn-dark">Join Discord</button>
+      <p style="margin-top:16px;color:#facc15;">⭐ 4.97 / 5 average rating</p>
+    </div>
+  </section>
 
-<section class="container features">
-  <div class="feature">
-    <h3>⚡ Instant Delivery</h3>
-    <p>No waiting time</p>
-  </div>
-  <div class="feature">
-    <h3>🔒 Secure Checkout</h3>
-    <p>256-bit encryption</p>
-  </div>
-  <div class="feature">
-    <h3>✅ 100% Success Rate</h3>
-    <p>Works as promised</p>
-  </div>
-  <div class="feature">
-    <h3>🛡 Top-rated Support</h3>
-    <p>We've got your back</p>
-  </div>
-</section>
+  <section class="container features">
+    <div class="feature">
+      <h3>⚡ Instant Delivery</h3>
+      <p>No waiting time</p>
+    </div>
+    <div class="feature">
+      <h3>🔒 Secure Checkout</h3>
+      <p>256-bit encryption</p>
+    </div>
+    <div class="feature">
+      <h3>✅ 100% Success Rate</h3>
+      <p>Works as promised</p>
+    </div>
+    <div class="feature">
+      <h3>🛡 Top-rated Support</h3>
+      <p>We've got your back</p>
+    </div>
+  </section>
 
-<section class="products container">
-  <h2 style="text-align:center;margin-bottom:12px;">Best Seller Products</h2>
-  <p style="text-align:center;color:#777;margin-bottom:40px;">Products loved by our customers</p>
+  <section class="products container">
+    <h2 style="text-align:center;margin-bottom:12px;">Best Seller Products</h2>
+    <p style="text-align:center;color:#777;margin-bottom:40px;">Products loved by our customers</p>
 
-  <div class="products-grid" id="productsGrid">
-    <!-- Products will be rendered here by JavaScript -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will be rendered here by JavaScript -->
+    </div>
+  </section>
+</div>
+
+<!-- Dashboard -->
+<div id="dashboardContent" class="hidden">
+  <section class="dashboard container">
+    <div class="dashboard-header">
+      <div>
+        <h1 class="dashboard-title">My Orders</h1>
+        <p style="color:#777;">Manage your purchases and licenses</p>
+      </div>
+    </div>
+    <div class="dashboard-grid" id="ordersGrid">
+      <!-- Orders will be rendered here -->
+    </div>
+  </section>
+</div>
+
+<!-- Auth Modal -->
+<div class="modal" id="authModal">
+  <div class="modal-close" onclick="closeAuthModal()">×</div>
+  <div class="auth-modal-content">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2 class="auth-title">Welcome Back</h2>
+      <p class="auth-subtitle">Login to your account</p>
+      <form onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-input" id="loginUsername" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="loginPassword" required>
+        </div>
+        <button type="submit" class="btn btn-cyan form-btn">Login</button>
+      </form>
+      <div class="auth-switch">
+        Don't have an account? <a onclick="switchToRegister()">Register</a>
+      </div>
+    </div>
+
+    <!-- Register Form -->
+    <div id="registerForm" class="hidden">
+      <h2 class="auth-title">Create Account</h2>
+      <p class="auth-subtitle">Join MARGA2HIGH today</p>
+      <form onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" id="registerEmail" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Username</label>
+          <input type="text" class="form-input" id="registerUsername" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-input" id="registerPassword" required>
+        </div>
+        <button type="submit" class="btn btn-cyan form-btn">Register</button>
+      </form>
+      <div class="auth-switch">
+        Already have an account? <a onclick="switchToLogin()">Login</a>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
 <!-- Product Detail Modal -->
 <div class="modal" id="productModal">
@@ -878,21 +1261,34 @@
         </div>
         <p style="color:#aaa;">Scan menggunakan aplikasi e-wallet atau mobile banking Anda</p>
 
-        <div class="payment-instructions">
-          <h4>Cara Pembayaran:</h4>
-          <ol>
-            <li>Buka aplikasi e-wallet atau mobile banking Anda (GoPay, OVO, Dana, ShopeePay, dll)</li>
-            <li>Pilih menu "Scan QR" atau "QRIS"</li>
-            <li>Scan kode QR di atas</li>
-            <li>Konfirmasi pembayaran sesuai total yang tertera</li>
-            <li>Produk akan otomatis terkirim ke email Anda setelah pembayaran berhasil</li>
-          </ol>
-        </div>
+        <div class="upload-proof">
+          <h4>Upload Bukti Transfer</h4>
+          <p style="color:#777;font-size:14px;margin-bottom:16px;">Upload screenshot bukti pembayaran Anda</p>
+          
+          <div class="file-upload-wrapper">
+            <input type="file" id="paymentProof" class="file-upload-input" accept="image/*" onchange="handleFileUpload(event)">
+            <label for="paymentProof" class="file-upload-btn">
+              📷 Click to Upload<br>
+              <span style="font-size:12px;color:#666;">PNG, JPG up to 5MB</span>
+            </label>
+          </div>
 
-        <button class="btn btn-cyan" style="margin-top:24px;padding:16px 32px;" onclick="confirmPayment()">Saya Sudah Bayar</button>
+          <div class="file-preview" id="filePreview">
+            <img id="previewImage" src="" alt="Preview">
+          </div>
+
+          <button class="submit-payment-btn" id="submitPaymentBtn" onclick="submitPayment()" disabled>
+            Submit Payment Proof
+          </button>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- Alert -->
+<div class="alert" id="alert">
+  <div id="alertMessage"></div>
 </div>
 
 <footer>
@@ -904,7 +1300,18 @@
 </footer>
 
 <script>
-  // Product Database
+  // ==================== CONFIGURATION ====================
+  const DISCORD_WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL_HERE'; // Ganti dengan webhook Discord Anda
+
+  // ==================== GLOBAL STATE ====================
+  let currentUser = null;
+  let cart = [];
+  let currentProduct = null;
+  let selectedVariant = null;
+  let uploadedFile = null;
+  let currentOrderId = null;
+
+  // ==================== PRODUCTS DATABASE ====================
   const products = [
     {
       id: 1,
@@ -1045,14 +1452,149 @@
     }
   ];
 
-  let cart = [];
-  let currentProduct = null;
-  let selectedVariant = null;
+  // ==================== INITIALIZATION ====================
+  document.addEventListener('DOMContentLoaded', () => {
+    checkAuth();
+    renderProducts();
+  });
 
-  // Initialize
-  renderProducts();
+  // ==================== AUTH FUNCTIONS ====================
+  function checkAuth() {
+    const user = localStorage.getItem('currentUser');
+    if (user) {
+      currentUser = JSON.parse(user);
+      updateUIForLoggedIn();
+    }
+  }
 
-  // Render Products
+  function updateUIForLoggedIn() {
+    document.getElementById('navGuest').classList.add('hidden');
+    document.getElementById('navUser').classList.remove('hidden');
+    document.getElementById('userAvatar').textContent = currentUser.username.charAt(0).toUpperCase();
+    updateCartUI();
+  }
+
+  function updateUIForGuest() {
+    document.getElementById('navGuest').classList.remove('hidden');
+    document.getElementById('navUser').classList.add('hidden');
+    updateCartUI();
+  }
+
+  function openAuthModal(type) {
+    if (type === 'login') {
+      document.getElementById('loginForm').classList.remove('hidden');
+      document.getElementById('registerForm').classList.add('hidden');
+    } else {
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('registerForm').classList.remove('hidden');
+    }
+    document.getElementById('authModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAuthModal() {
+    document.getElementById('authModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function switchToLogin() {
+    document.getElementById('loginForm').classList.remove('hidden');
+    document.getElementById('registerForm').classList.add('hidden');
+  }
+
+  function switchToRegister() {
+    document.getElementById('loginForm').classList.add('hidden');
+    document.getElementById('registerForm').classList.remove('hidden');
+  }
+
+  function handleRegister(e) {
+    e.preventDefault();
+    const email = document.getElementById('registerEmail').value;
+    const username = document.getElementById('registerUsername').value;
+    const password = document.getElementById('registerPassword').value;
+
+    // Get existing users
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+    
+    // Check if username exists
+    if (users.find(u => u.username === username)) {
+      showAlert('Username already exists', 'error');
+      return;
+    }
+
+    // Create new user
+    const newUser = {
+      id: Date.now(),
+      email,
+      username,
+      password,
+      createdAt: new Date().toISOString()
+    };
+
+    users.push(newUser);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    showAlert('Registration successful! Please login.', 'success');
+    switchToLogin();
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const username = document.getElementById('loginUsername').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+      currentUser = user;
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      updateUIForLoggedIn();
+      closeAuthModal();
+      showAlert('Login successful!', 'success');
+    } else {
+      showAlert('Invalid username or password', 'error');
+    }
+  }
+
+  function logout() {
+    currentUser = null;
+    localStorage.removeItem('currentUser');
+    updateUIForGuest();
+    goToHome();
+    showAlert('Logged out successfully', 'success');
+  }
+
+  function toggleUserMenu() {
+    document.getElementById('userDropdown').classList.toggle('active');
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.user-menu')) {
+      document.getElementById('userDropdown').classList.remove('active');
+    }
+  });
+
+  // ==================== NAVIGATION ====================
+  function goToHome() {
+    document.getElementById('mainContent').classList.remove('hidden');
+    document.getElementById('dashboardContent').classList.add('hidden');
+    window.scrollTo(0, 0);
+  }
+
+  function goToDashboard() {
+    if (!currentUser) {
+      openAuthModal('login');
+      return;
+    }
+    document.getElementById('mainContent').classList.add('hidden');
+    document.getElementById('dashboardContent').classList.remove('hidden');
+    renderOrders();
+    window.scrollTo(0, 0);
+  }
+
+  // ==================== PRODUCTS ====================
   function renderProducts(searchQuery = '') {
     const grid = document.getElementById('productsGrid');
     const filtered = products.filter(p => 
@@ -1074,27 +1616,22 @@
     }
   }
 
-  // Search functionality
   document.getElementById('searchInput').addEventListener('input', (e) => {
     renderProducts(e.target.value);
   });
 
-  // Open Product Modal
   function openProductModal(productId) {
     currentProduct = products.find(p => p.id === productId);
     if (!currentProduct) return;
 
-    // Set default selected variant
     selectedVariant = currentProduct.variants[0];
 
-    // Update modal content
     document.getElementById('showcaseMainImg').src = currentProduct.images[0];
     document.getElementById('breadcrumbProduct').textContent = currentProduct.name;
     document.getElementById('detailTitle').textContent = currentProduct.name;
-    document.getElementById('detailPrice').textContent = `€${(currentProduct.basePrice / 15000).toFixed(2)}`;
+    document.getElementById('detailPrice').textContent = `Rp${currentProduct.basePrice.toLocaleString('id-ID')}`;
     document.getElementById('productDescription').textContent = currentProduct.description;
 
-    // Render thumbnails
     const thumbsContainer = document.getElementById('showcaseThumbs');
     thumbsContainer.innerHTML = currentProduct.images.map((img, idx) => `
       <div class="showcase-thumb ${idx === 0 ? 'active' : ''}" onclick="changeShowcaseImage(${idx})">
@@ -1102,7 +1639,6 @@
       </div>
     `).join('');
 
-    // Render variants
     const variantsContainer = document.getElementById('variantOptions');
     variantsContainer.innerHTML = currentProduct.variants.map((variant, idx) => `
       <div class="variant-option ${idx === 0 ? 'active' : ''} ${!variant.available ? 'disabled' : ''}" 
@@ -1112,22 +1648,18 @@
           <div class="variant-desc">${variant.desc}</div>
         </div>
         <div>
-          <div class="variant-price">€${(variant.price / 15000).toFixed(2)}</div>
+          <div class="variant-price">Rp${variant.price.toLocaleString('id-ID')}</div>
           ${!variant.available ? '<div class="variant-status">not now</div>' : ''}
         </div>
       </div>
     `).join('');
 
-    // Render features
     renderFeatures('keyBenefits', currentProduct.features.keyBenefits);
     renderFeatures('aimbotFeatures', currentProduct.features.aimbotFeatures);
     renderFeatures('visualFeatures', currentProduct.features.visualFeatures);
     renderFeatures('miscFeatures', currentProduct.features.miscFeatures);
 
-    // Reset quantity
     document.getElementById('quantityInput').value = 1;
-
-    // Show modal
     document.getElementById('productModal').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -1149,7 +1681,7 @@
     if (!variant.available) return;
 
     selectedVariant = variant;
-    document.getElementById('detailPrice').textContent = `€${(variant.price / 15000).toFixed(2)}`;
+    document.getElementById('detailPrice').textContent = `Rp${variant.price.toLocaleString('id-ID')}`;
 
     document.querySelectorAll('.variant-option').forEach((opt, idx) => {
       opt.classList.toggle('active', idx === index);
@@ -1181,9 +1713,10 @@
     input.value = parseInt(input.value) + 1;
   }
 
+  // ==================== CART ====================
   function addToCart() {
     if (!selectedVariant || !selectedVariant.available) {
-      alert('Please select an available variant');
+      showAlert('Please select an available variant', 'warning');
       return;
     }
 
@@ -1198,7 +1731,6 @@
       image: currentProduct.images[0]
     };
 
-    // Check if item already exists
     const existingIndex = cart.findIndex(item => 
       item.productId === cartItem.productId && item.variantName === cartItem.variantName
     );
@@ -1212,6 +1744,7 @@
     updateCartUI();
     closeProductModal();
     toggleCart();
+    showAlert('Added to cart!', 'success');
   }
 
   function toggleCart() {
@@ -1226,11 +1759,13 @@
 
   function updateCartUI() {
     const badge = document.getElementById('cartBadge');
+    const badgeUser = document.getElementById('cartBadgeUser');
     const itemsContainer = document.getElementById('cartItems');
     const footer = document.getElementById('cartFooter');
 
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     badge.textContent = totalItems;
+    badgeUser.textContent = totalItems;
 
     if (cart.length === 0) {
       itemsContainer.innerHTML = `
@@ -1264,7 +1799,15 @@
     updateCartUI();
   }
 
+  // ==================== CHECKOUT ====================
   function proceedToCheckout() {
+    if (!currentUser) {
+      toggleCart();
+      showAlert('Please login to checkout', 'warning');
+      openAuthModal('login');
+      return;
+    }
+
     if (cart.length === 0) return;
 
     const checkoutItems = document.getElementById('checkoutItems');
@@ -1279,6 +1822,12 @@
     document.getElementById('checkoutSubtotal').textContent = `Rp${total.toLocaleString('id-ID')}`;
     document.getElementById('checkoutTotal').textContent = `Rp${total.toLocaleString('id-ID')}`;
 
+    // Reset payment proof
+    uploadedFile = null;
+    document.getElementById('paymentProof').value = '';
+    document.getElementById('filePreview').style.display = 'none';
+    document.getElementById('submitPaymentBtn').disabled = true;
+
     toggleCart();
     document.getElementById('checkoutModal').classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1289,18 +1838,272 @@
     document.body.style.overflow = '';
   }
 
-  function confirmPayment() {
-    alert('Terima kasih! Pembayaran Anda sedang diproses. Anda akan menerima email konfirmasi segera.');
-    cart = [];
-    updateCartUI();
-    closeCheckoutModal();
+  function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    if (file.size > 5 * 1024 * 1024) {
+      showAlert('File size must be less than 5MB', 'error');
+      return;
+    }
+
+    uploadedFile = file;
+    
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      document.getElementById('previewImage').src = e.target.result;
+      document.getElementById('filePreview').style.display = 'block';
+      document.getElementById('submitPaymentBtn').disabled = false;
+    };
+    reader.readAsDataURL(file);
   }
 
-  // Close modal on ESC key
+  async function submitPayment() {
+    if (!uploadedFile) {
+      showAlert('Please upload payment proof', 'warning');
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitPaymentBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    try {
+      // Create order
+      const orderId = 'ORD-' + Date.now();
+      currentOrderId = orderId;
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+      const order = {
+        id: orderId,
+        userId: currentUser.id,
+        username: currentUser.username,
+        email: currentUser.email,
+        items: [...cart],
+        total: total,
+        status: 'waiting',
+        createdAt: new Date().toISOString(),
+        license: null
+      };
+
+      // Save order
+      let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+      orders.push(order);
+      localStorage.setItem('orders', JSON.stringify(orders));
+
+      // Convert image to base64
+      const reader = new FileReader();
+      reader.onload = async () => {
+        const base64Image = reader.result;
+
+        // Send to Discord webhook
+        await sendToDiscord(order, base64Image);
+
+        // Clear cart
+        cart = [];
+        updateCartUI();
+        closeCheckoutModal();
+        
+        showAlert('Payment proof submitted! Waiting for approval...', 'success');
+        goToDashboard();
+      };
+      reader.readAsDataURL(uploadedFile);
+
+    } catch (error) {
+      console.error('Error submitting payment:', error);
+      showAlert('Failed to submit payment. Please try again.', 'error');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Payment Proof';
+    }
+  }
+
+  async function sendToDiscord(order, imageBase64) {
+    const itemsList = order.items.map(item => 
+      `${item.productName} - ${item.variantName} (x${item.quantity}) - Rp${(item.price * item.quantity).toLocaleString('id-ID')}`
+    ).join('\n');
+
+    const embed = {
+      title: '💳 New Payment Submission',
+      color: 0x06b6d4,
+      fields: [
+        {
+          name: '📋 Order ID',
+          value: order.id,
+          inline: true
+        },
+        {
+          name: '👤 Customer',
+          value: order.username,
+          inline: true
+        },
+        {
+          name: '📧 Email',
+          value: order.email,
+          inline: true
+        },
+        {
+          name: '🛒 Items',
+          value: itemsList
+        },
+        {
+          name: '💰 Total',
+          value: `Rp${order.total.toLocaleString('id-ID')}`,
+          inline: true
+        },
+        {
+          name: '📅 Date',
+          value: new Date(order.createdAt).toLocaleString('id-ID'),
+          inline: true
+        }
+      ],
+      image: {
+        url: 'attachment://payment_proof.png'
+      },
+      footer: {
+        text: 'React with 👍 to approve or 👎 to decline'
+      },
+      timestamp: new Date().toISOString()
+    };
+
+    // Convert base64 to blob
+    const blob = await fetch(imageBase64).then(r => r.blob());
+    
+    const formData = new FormData();
+    formData.append('payload_json', JSON.stringify({
+      embeds: [embed],
+      content: `@here New payment submission from **${order.username}**\n\nOrder ID: \`${order.id}\``
+    }));
+    formData.append('file', blob, 'payment_proof.png');
+
+    // Send to webhook
+    if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
+      try {
+        await fetch(DISCORD_WEBHOOK_URL, {
+          method: 'POST',
+          body: formData
+        });
+      } catch (error) {
+        console.error('Discord webhook error:', error);
+      }
+    } else {
+      console.log('Discord webhook not configured. Order saved locally.');
+      console.log('Order details:', order);
+    }
+  }
+
+  // ==================== ORDERS/DASHBOARD ====================
+  function renderOrders() {
+    if (!currentUser) return;
+
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const userOrders = orders.filter(o => o.userId === currentUser.id);
+    const grid = document.getElementById('ordersGrid');
+
+    if (userOrders.length === 0) {
+      grid.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:60px 20px;">
+          <p style="font-size:48px;margin-bottom:16px;">📦</p>
+          <p style="color:#666;">No orders yet</p>
+          <button class="btn btn-cyan" style="margin-top:24px;" onclick="goToHome()">Start Shopping</button>
+        </div>
+      `;
+      return;
+    }
+
+    grid.innerHTML = userOrders.reverse().map(order => `
+      <div class="order-card">
+        <div class="order-header">
+          <div>
+            <div class="order-id">Order #${order.id}</div>
+            <div class="order-product">${order.items[0].productName}</div>
+            <div class="order-variant">${order.items[0].variantName}</div>
+          </div>
+          <div class="order-status status-${order.status}">
+            ${order.status === 'waiting' ? '⏳ Waiting' : order.status === 'done' ? '✅ Done' : '❌ Declined'}
+          </div>
+        </div>
+        
+        <div class="order-price">Rp${order.total.toLocaleString('id-ID')}</div>
+        
+        ${order.items.length > 1 ? `<p style="color:#777;font-size:14px;">+${order.items.length - 1} more items</p>` : ''}
+        
+        ${order.status === 'done' && order.license ? `
+          <div class="order-license">
+            <div class="license-label">License Key:</div>
+            <div style="color:#06b6d4;word-break:break-all;">${order.license}</div>
+            <button class="copy-btn" onclick="copyLicense('${order.license}')">📋 Copy License</button>
+          </div>
+        ` : ''}
+        
+        ${order.status === 'waiting' ? `
+          <p style="color:#fbbf24;font-size:13px;margin-top:12px;">⏳ Waiting for owner approval...</p>
+        ` : ''}
+        
+        ${order.status === 'declined' ? `
+          <p style="color:#dc2626;font-size:13px;margin-top:12px;">❌ Payment declined. Please contact support.</p>
+        ` : ''}
+        
+        <p style="color:#666;font-size:12px;margin-top:12px;">${new Date(order.createdAt).toLocaleString('id-ID')}</p>
+      </div>
+    `).join('');
+  }
+
+  function copyLicense(license) {
+    navigator.clipboard.writeText(license);
+    showAlert('License copied to clipboard!', 'success');
+  }
+
+  // ==================== DISCORD WEBHOOK SIMULATION ====================
+  // In production, you'll handle approval through Discord bot
+  // This is a simulation function for testing
+  window.approveOrder = function(orderId, license) {
+    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const orderIndex = orders.findIndex(o => o.id === orderId);
+    
+    if (orderIndex > -1) {
+      orders[orderIndex].status = 'done';
+      orders[orderIndex].license = license;
+      localStorage.setItem('orders', JSON.stringify(orders));
+      
+      if (currentUser && currentUser.id === orders[orderIndex].userId) {
+        renderOrders();
+      }
+    }
+  };
+
+  window.declineOrder = function(orderId) {
+    let orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    const orderIndex = orders.findIndex(o => o.id === orderId);
+    
+    if (orderIndex > -1) {
+      orders[orderIndex].status = 'declined';
+      localStorage.setItem('orders', JSON.stringify(orders));
+      
+      if (currentUser && currentUser.id === orders[orderIndex].userId) {
+        renderOrders();
+      }
+    }
+  };
+
+  // ==================== ALERTS ====================
+  function showAlert(message, type = 'success') {
+    const alert = document.getElementById('alert');
+    const alertMessage = document.getElementById('alertMessage');
+    
+    alert.className = `alert alert-${type} show`;
+    alertMessage.textContent = message;
+    
+    setTimeout(() => {
+      alert.classList.remove('show');
+    }, 4000);
+  }
+
+  // ==================== UTILITIES ====================
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeProductModal();
       closeCheckoutModal();
+      closeAuthModal();
       if (document.getElementById('cartSidebar').classList.contains('active')) {
         toggleCart();
       }
