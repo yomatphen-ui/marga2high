@@ -54,14 +54,73 @@
       padding: 10px 16px;
       border-radius: 8px;
       font-weight: 600;
+      transition: .2s;
     }
     .btn-red {
       background: #dc2626;
       color: #fff;
     }
+    .btn-red:hover {
+      background: #b91c1c;
+    }
     .btn-dark {
       background: #111;
       color: #fff;
+    }
+    .btn-dark:hover {
+      background: #1a1a1a;
+    }
+    .btn-cyan {
+      background: #06b6d4;
+      color: #fff;
+    }
+    .btn-cyan:hover {
+      background: #0891b2;
+    }
+
+    /* CART ICON */
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .cart-badge {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      background: #dc2626;
+      color: #fff;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 300px;
+    }
+    .search-bar input {
+      background: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+    }
+    .search-bar input::placeholder {
+      color: #666;
     }
 
     /* HERO */
@@ -117,6 +176,7 @@
       border-radius: 18px;
       overflow: hidden;
       transition: .2s;
+      cursor: pointer;
     }
     .product:hover {
       transform: translateY(-4px);
@@ -141,6 +201,467 @@
       font-size: 20px;
     }
 
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.9);
+      z-index: 100;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    .modal.active {
+      display: block;
+    }
+    .modal-content {
+      max-width: 1200px;
+      margin: auto;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #111;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    /* PRODUCT DETAIL */
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 40px;
+    }
+    .showcase {
+      position: relative;
+    }
+    .showcase-main {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .showcase-main img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+    .showcase-thumbs {
+      display: flex;
+      gap: 12px;
+    }
+    .showcase-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: .2s;
+    }
+    .showcase-thumb:hover,
+    .showcase-thumb.active {
+      border-color: #dc2626;
+    }
+    .showcase-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-info {
+      padding: 20px 0;
+    }
+    .breadcrumb {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+    .detail-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .stars {
+      color: #facc15;
+      font-size: 18px;
+    }
+    .detail-price {
+      font-size: 36px;
+      color: #06b6d4;
+      font-weight: 800;
+      margin-bottom: 24px;
+    }
+
+    .variants {
+      margin-bottom: 24px;
+    }
+    .variants h3 {
+      font-size: 14px;
+      margin-bottom: 12px;
+      color: #aaa;
+    }
+    .variant-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .variant-option {
+      background: #111;
+      border: 2px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: .2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .variant-option:hover {
+      border-color: #333;
+    }
+    .variant-option.active {
+      border-color: #06b6d4;
+      background: rgba(6, 182, 212, 0.1);
+    }
+    .variant-option.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .variant-label {
+      display: flex;
+      flex-direction: column;
+    }
+    .variant-name {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .variant-desc {
+      font-size: 13px;
+      color: #777;
+    }
+    .variant-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: #06b6d4;
+    }
+    .variant-status {
+      font-size: 12px;
+      color: #dc2626;
+      font-weight: 600;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .quantity-btn {
+      background: #111;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .quantity-input {
+      background: #111;
+      border: 1px solid #1a1a1a;
+      color: #fff;
+      width: 60px;
+      height: 36px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .coupon-section {
+      margin-bottom: 24px;
+    }
+    .coupon-section h3 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #aaa;
+    }
+    .coupon-input {
+      display: flex;
+      gap: 8px;
+    }
+    .coupon-input input {
+      flex: 1;
+      background: #111;
+      border: 1px solid #1a1a1a;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .add-to-cart-btn {
+      width: 100%;
+      background: #06b6d4;
+      color: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .add-to-cart-btn:hover {
+      background: #0891b2;
+    }
+    .add-to-cart-btn:disabled {
+      background: #333;
+      cursor: not-allowed;
+    }
+
+    /* FEATURES LIST */
+    .features-section {
+      background: #050505;
+      padding: 40px;
+      border-top: 1px solid #1a1a1a;
+    }
+    .features-section h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .feature-category {
+      margin-bottom: 32px;
+    }
+    .feature-category h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+    }
+    .feature-item .check {
+      color: #22c55e;
+      margin-top: 2px;
+    }
+    .feature-item strong {
+      color: #fff;
+    }
+    .feature-item span {
+      color: #999;
+    }
+
+    /* CART SIDEBAR */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 450px;
+      height: 100%;
+      background: #0a0a0a;
+      border-left: 1px solid #1a1a1a;
+      z-index: 200;
+      transition: .3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-sidebar.active {
+      right: 0;
+    }
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h2 {
+      font-size: 20px;
+    }
+    .cart-close {
+      background: #111;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: #666;
+    }
+    .cart-item {
+      background: #111;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+    }
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .cart-item-variant {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 8px;
+    }
+    .cart-item-price {
+      color: #06b6d4;
+      font-weight: 700;
+    }
+    .cart-item-remove {
+      background: #dc2626;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #1a1a1a;
+      padding: 20px;
+    }
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .cart-total-price {
+      color: #06b6d4;
+    }
+    .checkout-btn {
+      width: 100%;
+      background: #06b6d4;
+      color: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* CHECKOUT MODAL */
+    .checkout-section {
+      padding: 40px;
+    }
+    .checkout-section h2 {
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+    .order-summary {
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .summary-item:last-child {
+      border: none;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .qris-section {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .qris-section h3 {
+      margin-bottom: 16px;
+    }
+    .qris-code {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 16px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .qris-code img {
+      width: 100%;
+      height: 100%;
+    }
+    .payment-instructions {
+      background: #111;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+    .payment-instructions h4 {
+      margin-bottom: 12px;
+    }
+    .payment-instructions ol {
+      margin-left: 20px;
+      color: #aaa;
+    }
+    .payment-instructions li {
+      margin-bottom: 8px;
+    }
+
     /* FOOTER */
     footer {
       border-top: 1px solid #111;
@@ -154,7 +675,11 @@
     @media (max-width: 900px) {
       .features { grid-template-columns: repeat(2,1fr); }
       .products-grid { grid-template-columns: 1fr; }
+      .product-detail { grid-template-columns: 1fr; }
+      .feature-list { grid-template-columns: 1fr; }
       .hero h1 { font-size: 40px; }
+      .search-bar { max-width: 200px; }
+      .nav { gap: 12px; }
     }
   </style>
 </head>
@@ -165,9 +690,17 @@
   <div class="container header-inner">
     <div class="logo">🎮 MARGA2HIGH</div>
     <div class="nav">
+      <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" id="searchInput" placeholder="Search products...">
+      </div>
       <a href="#">Terms</a>
       <a href="#">Reviews</a>
-      <button class="btn btn-red">Customer Login</button>
+      <div class="cart-icon" onclick="toggleCart()">
+        🛒
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+      <button class="btn btn-cyan">Customer Login</button>
     </div>
   </div>
 </header>
@@ -198,7 +731,7 @@
   </div>
   <div class="feature">
     <h3>🛡 Top-rated Support</h3>
-    <p>We’ve got your back</p>
+    <p>We've got your back</p>
   </div>
 </section>
 
@@ -206,32 +739,161 @@
   <h2 style="text-align:center;margin-bottom:12px;">Best Seller Products</h2>
   <p style="text-align:center;color:#777;margin-bottom:40px;">Products loved by our customers</p>
 
-  <div class="products-grid">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800">
-      <div class="product-body">
-        <h4>Valorant Internal</h4>
-        <div class="price">Rp150K</div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Products will be rendered here by JavaScript -->
+  </div>
+</section>
+
+<!-- Product Detail Modal -->
+<div class="modal" id="productModal">
+  <div class="modal-close" onclick="closeProductModal()">×</div>
+  <div class="modal-content">
+    <div class="product-detail">
+      <div class="showcase">
+        <div class="showcase-main">
+          <img id="showcaseMainImg" src="" alt="">
+        </div>
+        <div class="showcase-thumbs" id="showcaseThumbs">
+          <!-- Thumbnails will be inserted here -->
+        </div>
+      </div>
+
+      <div class="detail-info">
+        <div class="breadcrumb">Home / Product / <span id="breadcrumbProduct"></span></div>
+        <h1 class="detail-title" id="detailTitle"></h1>
+        <div class="rating">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span style="color:#777;">(4.97 / 5)</span>
+        </div>
+        <div class="detail-price" id="detailPrice"></div>
+
+        <div class="variants">
+          <h3>Variants:</h3>
+          <div class="variant-options" id="variantOptions">
+            <!-- Variants will be inserted here -->
+          </div>
+        </div>
+
+        <div class="quantity-selector">
+          <span style="color:#aaa;font-size:14px;">Quantity:</span>
+          <button class="quantity-btn" onclick="decreaseQuantity()">−</button>
+          <input type="number" class="quantity-input" id="quantityInput" value="1" min="1" readonly>
+          <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+        </div>
+
+        <div class="coupon-section">
+          <h3>Coupon:</h3>
+          <div class="coupon-input">
+            <input type="text" placeholder="Enter Coupon Code" id="couponInput">
+            <button class="btn btn-dark">Apply</button>
+          </div>
+        </div>
+
+        <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+        <p style="text-align:center;color:#777;font-size:13px;">🔒 Secure Checkout • ⚡ Instant Delivery</p>
       </div>
     </div>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800">
-      <div class="product-body">
-        <h4>PUBG Mobile Premium</h4>
-        <div class="price">Rp100K</div>
-      </div>
-    </div>
+    <!-- Features Section -->
+    <div class="features-section">
+      <h2>Description:</h2>
+      <p style="color:#aaa;margin-bottom:32px;" id="productDescription"></p>
 
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800">
-      <div class="product-body">
-        <h4>CS2 External</h4>
-        <div class="price">Rp200K</div>
+      <div class="feature-category">
+        <h3>🔴 Key Benefits</h3>
+        <div class="feature-list" id="keyBenefits">
+          <!-- Features will be inserted here -->
+        </div>
+      </div>
+
+      <div class="feature-category">
+        <h3>🎯 AIMBOT FEATURES</h3>
+        <div class="feature-list" id="aimbotFeatures">
+          <!-- Features will be inserted here -->
+        </div>
+      </div>
+
+      <div class="feature-category">
+        <h3>👁 VISUAL FEATURES (ESP)</h3>
+        <div class="feature-list" id="visualFeatures">
+          <!-- Features will be inserted here -->
+        </div>
+      </div>
+
+      <div class="feature-category">
+        <h3>🎮 MISC</h3>
+        <div class="feature-list" id="miscFeatures">
+          <!-- Features will be inserted here -->
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Shopping Cart</h2>
+    <div class="cart-close" onclick="toggleCart()">×</div>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <p style="font-size:48px;margin-bottom:16px;">🛒</p>
+      <p>Your cart is empty</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span class="cart-total-price" id="cartTotal">Rp0</span>
+    </div>
+    <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-close" onclick="closeCheckoutModal()">×</div>
+  <div class="modal-content">
+    <div class="checkout-section">
+      <h2>Checkout</h2>
+      
+      <div class="order-summary">
+        <h3 style="margin-bottom:16px;">Order Summary</h3>
+        <div id="checkoutItems"></div>
+        <div class="summary-item">
+          <span>Subtotal:</span>
+          <span id="checkoutSubtotal">Rp0</span>
+        </div>
+        <div class="summary-item">
+          <span>Total:</span>
+          <span style="color:#06b6d4;" id="checkoutTotal">Rp0</span>
+        </div>
+      </div>
+
+      <div class="qris-section">
+        <h3>Scan QRIS to Pay</h3>
+        <div class="qris-code">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=00020101021226670016COM.NOBUBANK.WWW01189360050300000898740214545400010303UMI51440014ID.CO.QRIS.WWW0215ID10200984856150303UMI5204481253033605802ID5912MARGA2HIGH6007JAKARTA61051234062070703A016304" alt="QRIS Code">
+        </div>
+        <p style="color:#aaa;">Scan menggunakan aplikasi e-wallet atau mobile banking Anda</p>
+
+        <div class="payment-instructions">
+          <h4>Cara Pembayaran:</h4>
+          <ol>
+            <li>Buka aplikasi e-wallet atau mobile banking Anda (GoPay, OVO, Dana, ShopeePay, dll)</li>
+            <li>Pilih menu "Scan QR" atau "QRIS"</li>
+            <li>Scan kode QR di atas</li>
+            <li>Konfirmasi pembayaran sesuai total yang tertera</li>
+            <li>Produk akan otomatis terkirim ke email Anda setelah pembayaran berhasil</li>
+          </ol>
+        </div>
+
+        <button class="btn btn-cyan" style="margin-top:24px;padding:16px 32px;" onclick="confirmPayment()">Saya Sudah Bayar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="container">
@@ -240,6 +902,411 @@
     <small>For educational purposes only</small>
   </div>
 </footer>
+
+<script>
+  // Product Database
+  const products = [
+    {
+      id: 1,
+      name: 'Valorant Internal',
+      basePrice: 150000,
+      images: [
+        'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800',
+        'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800',
+        'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800'
+      ],
+      description: 'Precision, performance, and complete control. Jinx Internal delivers pro-level aimbot and ESP features while staying fully undetected, and secure. Built for legit play or full rage, optimized for maximum FPS.',
+      variants: [
+        { name: '1 Day Valorant Internal', duration: '1 Day', price: 150000, desc: '[1 Day License To Valorant Internal]', available: true },
+        { name: '3 Days Valorant Internal', duration: '3 Days', price: 350000, desc: '[3 Days License To Valorant Internal]', available: true },
+        { name: '1 Week Valorant Internal', duration: '7 Days', price: 650000, desc: '[7 Days License To Valorant Internal]', available: true },
+        { name: '1 Month Valorant Internal', duration: '30 Days', price: 1800000, desc: '[31 Day License To Valorant Internal]', available: true },
+        { name: 'Lifetime Valorant Internal', duration: 'Lifetime', price: 6500000, desc: '[Lifetime License To Valorant Internal]', available: false }
+      ],
+      features: {
+        keyBenefits: [
+          { icon: '✅', text: 'Undetected & Stable', desc: 'Battle-tested every update.' },
+          { icon: '🔧', text: 'Windows 10 & 11(23H2) Compatible', desc: 'Support most Windows builds.' },
+          { icon: '🔄', text: 'Self-Service HWID Reset', desc: 'HWID reset quickly.' },
+          { icon: '⚡', text: 'Instant Delivery', desc: 'License key activation in seconds.' }
+        ],
+        aimbotFeatures: [
+          { icon: '✅', text: 'Enable/Disable Aimbot', desc: 'Quick on/off toggle.' },
+          { icon: '👁', text: 'Visible Check', desc: 'Only targets seen opponents.' },
+          { icon: '🎯', text: 'Recoil Control', desc: 'Helps stabilize aim.' },
+          { icon: '🦴', text: 'Aimbone Select', desc: 'Choose target bone (e.g., head/chest).' },
+          { icon: '📐', text: 'Draw FOV', desc: 'Display the aim radius on screen.' },
+          { icon: '🎯', text: 'Smooth', desc: 'Adjust tracking smoothness.' },
+          { icon: '👀', text: 'FOV', desc: 'Set the targeting field of view.' }
+        ],
+        visualFeatures: [
+          { icon: '💀', text: 'Skeleton', desc: 'Overlay player bone structure.' },
+          { icon: '📏', text: 'Snapline', desc: 'Line from you to enemy.' },
+          { icon: '📦', text: 'Headbox', desc: 'Highlight head hitbox.' },
+          { icon: '❤️', text: 'Healthbar', desc: 'Show current HP.' },
+          { icon: '📏', text: 'Distance', desc: 'Display range to target.' },
+          { icon: '🎭', text: 'Agent', desc: 'Show character/agent name.' },
+          { icon: '🔫', text: 'Weapon', desc: 'Show equipped weapon.' },
+          { icon: '👥', text: 'Enemy Chams', desc: 'Colored models for visibility.' },
+          { icon: '👁', text: 'Visible Check', desc: 'Only render when visible.' }
+        ],
+        miscFeatures: [
+          { icon: '🔓', text: 'Unlock All', desc: 'Access all skins.' },
+          { icon: '🐰', text: 'BHOP', desc: 'Auto bunny-hop movement.' },
+          { icon: '👀', text: 'FOV Changer', desc: 'Changed fov value.' },
+          { icon: '🎓', text: 'Skip Tutorial', desc: 'Skip first time tutorial.' }
+        ]
+      }
+    },
+    {
+      id: 2,
+      name: 'PUBG Mobile Premium',
+      basePrice: 100000,
+      images: [
+        'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800',
+        'https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800'
+      ],
+      description: 'Dominate the battlefield with advanced ESP, aimbot, and recoil control features. Optimized for mobile gaming performance.',
+      variants: [
+        { name: '1 Day PUBG Mobile', duration: '1 Day', price: 100000, desc: '[1 Day License To PUBG Mobile]', available: true },
+        { name: '3 Days PUBG Mobile', duration: '3 Days', price: 250000, desc: '[3 Days License To PUBG Mobile]', available: true },
+        { name: '1 Week PUBG Mobile', duration: '7 Days', price: 450000, desc: '[7 Days License To PUBG Mobile]', available: true },
+        { name: '1 Month PUBG Mobile', duration: '30 Days', price: 1200000, desc: '[31 Day License To PUBG Mobile]', available: true }
+      ],
+      features: {
+        keyBenefits: [
+          { icon: '✅', text: 'Undetected', desc: 'Safe from anti-cheat.' },
+          { icon: '📱', text: 'Android Compatible', desc: 'Works on most devices.' },
+          { icon: '⚡', text: 'Fast Updates', desc: 'Quick patch support.' },
+          { icon: '🔄', text: 'Easy Installation', desc: 'Simple setup process.' }
+        ],
+        aimbotFeatures: [
+          { icon: '🎯', text: 'Auto Aim', desc: 'Automatic targeting.' },
+          { icon: '💥', text: 'No Recoil', desc: 'Zero weapon recoil.' },
+          { icon: '🔫', text: 'Rapid Fire', desc: 'Increased fire rate.' },
+          { icon: '👁', text: 'Lock Target', desc: 'Stay on target.' }
+        ],
+        visualFeatures: [
+          { icon: '📦', text: 'Box ESP', desc: 'Box around players.' },
+          { icon: '❤️', text: 'Health ESP', desc: 'Show enemy health.' },
+          { icon: '📏', text: 'Distance ESP', desc: 'Display distance.' },
+          { icon: '🎒', text: 'Item ESP', desc: 'See items through walls.' },
+          { icon: '🚗', text: 'Vehicle ESP', desc: 'Locate vehicles.' }
+        ],
+        miscFeatures: [
+          { icon: '🏃', text: 'Speed Hack', desc: 'Move faster.' },
+          { icon: '🦘', text: 'Jump Hack', desc: 'Higher jumps.' },
+          { icon: '🌈', text: 'Skin Changer', desc: 'Change weapon skins.' }
+        ]
+      }
+    },
+    {
+      id: 3,
+      name: 'CS2 External',
+      basePrice: 200000,
+      images: [
+        'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=800',
+        'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800'
+      ],
+      description: 'Professional-grade external cheat for CS2. Features advanced triggerbot, ESP, and radar hack with smooth performance.',
+      variants: [
+        { name: '1 Day CS2 External', duration: '1 Day', price: 200000, desc: '[1 Day License To CS2 External]', available: true },
+        { name: '3 Days CS2 External', duration: '3 Days', price: 450000, desc: '[3 Days License To CS2 External]', available: true },
+        { name: '1 Week CS2 External', duration: '7 Days', price: 800000, desc: '[7 Days License To CS2 External]', available: true },
+        { name: '1 Month CS2 External', duration: '30 Days', price: 2200000, desc: '[31 Day License To CS2 External]', available: true }
+      ],
+      features: {
+        keyBenefits: [
+          { icon: '✅', text: 'External & Safe', desc: 'Lower detection risk.' },
+          { icon: '🔧', text: 'Windows 10 & 11', desc: 'Full compatibility.' },
+          { icon: '⚡', text: 'Low CPU Usage', desc: 'Minimal performance impact.' },
+          { icon: '🔄', text: 'Auto Updates', desc: 'Always current.' }
+        ],
+        aimbotFeatures: [
+          { icon: '🎯', text: 'Triggerbot', desc: 'Auto-fire when on target.' },
+          { icon: '🎯', text: 'Smooth Aim', desc: 'Natural-looking aim.' },
+          { icon: '💥', text: 'Recoil Compensation', desc: 'Control spray pattern.' },
+          { icon: '👁', text: 'Visibility Check', desc: 'Only visible targets.' }
+        ],
+        visualFeatures: [
+          { icon: '📦', text: 'Player ESP', desc: 'See all players.' },
+          { icon: '💀', text: 'Skeleton ESP', desc: 'Bone overlay.' },
+          { icon: '❤️', text: 'Health Bar', desc: 'HP display.' },
+          { icon: '🔫', text: 'Weapon ESP', desc: 'Show weapons.' },
+          { icon: '💣', text: 'Bomb ESP', desc: 'Locate C4.' },
+          { icon: '🗺', text: 'Radar Hack', desc: 'Full map awareness.' }
+        ],
+        miscFeatures: [
+          { icon: '🌈', text: 'Skin Changer', desc: 'Custom skins.' },
+          { icon: '🎨', text: 'Chams', desc: 'Colored players.' },
+          { icon: '🔊', text: 'Sound ESP', desc: 'Audio indicators.' }
+        ]
+      }
+    }
+  ];
+
+  let cart = [];
+  let currentProduct = null;
+  let selectedVariant = null;
+
+  // Initialize
+  renderProducts();
+
+  // Render Products
+  function renderProducts(searchQuery = '') {
+    const grid = document.getElementById('productsGrid');
+    const filtered = products.filter(p => 
+      p.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    grid.innerHTML = filtered.map(product => `
+      <div class="product" onclick="openProductModal(${product.id})">
+        <img src="${product.images[0]}" alt="${product.name}">
+        <div class="product-body">
+          <h4>${product.name}</h4>
+          <div class="price">Rp${product.basePrice.toLocaleString('id-ID')}</div>
+        </div>
+      </div>
+    `).join('');
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '<p style="text-align:center;color:#666;grid-column:1/-1;">No products found</p>';
+    }
+  }
+
+  // Search functionality
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    renderProducts(e.target.value);
+  });
+
+  // Open Product Modal
+  function openProductModal(productId) {
+    currentProduct = products.find(p => p.id === productId);
+    if (!currentProduct) return;
+
+    // Set default selected variant
+    selectedVariant = currentProduct.variants[0];
+
+    // Update modal content
+    document.getElementById('showcaseMainImg').src = currentProduct.images[0];
+    document.getElementById('breadcrumbProduct').textContent = currentProduct.name;
+    document.getElementById('detailTitle').textContent = currentProduct.name;
+    document.getElementById('detailPrice').textContent = `€${(currentProduct.basePrice / 15000).toFixed(2)}`;
+    document.getElementById('productDescription').textContent = currentProduct.description;
+
+    // Render thumbnails
+    const thumbsContainer = document.getElementById('showcaseThumbs');
+    thumbsContainer.innerHTML = currentProduct.images.map((img, idx) => `
+      <div class="showcase-thumb ${idx === 0 ? 'active' : ''}" onclick="changeShowcaseImage(${idx})">
+        <img src="${img}" alt="">
+      </div>
+    `).join('');
+
+    // Render variants
+    const variantsContainer = document.getElementById('variantOptions');
+    variantsContainer.innerHTML = currentProduct.variants.map((variant, idx) => `
+      <div class="variant-option ${idx === 0 ? 'active' : ''} ${!variant.available ? 'disabled' : ''}" 
+           onclick="selectVariant(${idx})">
+        <div class="variant-label">
+          <div class="variant-name">${variant.name}</div>
+          <div class="variant-desc">${variant.desc}</div>
+        </div>
+        <div>
+          <div class="variant-price">€${(variant.price / 15000).toFixed(2)}</div>
+          ${!variant.available ? '<div class="variant-status">not now</div>' : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // Render features
+    renderFeatures('keyBenefits', currentProduct.features.keyBenefits);
+    renderFeatures('aimbotFeatures', currentProduct.features.aimbotFeatures);
+    renderFeatures('visualFeatures', currentProduct.features.visualFeatures);
+    renderFeatures('miscFeatures', currentProduct.features.miscFeatures);
+
+    // Reset quantity
+    document.getElementById('quantityInput').value = 1;
+
+    // Show modal
+    document.getElementById('productModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal() {
+    document.getElementById('productModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function changeShowcaseImage(index) {
+    document.getElementById('showcaseMainImg').src = currentProduct.images[index];
+    document.querySelectorAll('.showcase-thumb').forEach((thumb, idx) => {
+      thumb.classList.toggle('active', idx === index);
+    });
+  }
+
+  function selectVariant(index) {
+    const variant = currentProduct.variants[index];
+    if (!variant.available) return;
+
+    selectedVariant = variant;
+    document.getElementById('detailPrice').textContent = `€${(variant.price / 15000).toFixed(2)}`;
+
+    document.querySelectorAll('.variant-option').forEach((opt, idx) => {
+      opt.classList.toggle('active', idx === index);
+    });
+  }
+
+  function renderFeatures(containerId, features) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = features.map(feature => `
+      <div class="feature-item">
+        <span class="check">${feature.icon}</span>
+        <div>
+          <strong>${feature.text}</strong>
+          <span> — ${feature.desc}</span>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function decreaseQuantity() {
+    const input = document.getElementById('quantityInput');
+    if (input.value > 1) {
+      input.value = parseInt(input.value) - 1;
+    }
+  }
+
+  function increaseQuantity() {
+    const input = document.getElementById('quantityInput');
+    input.value = parseInt(input.value) + 1;
+  }
+
+  function addToCart() {
+    if (!selectedVariant || !selectedVariant.available) {
+      alert('Please select an available variant');
+      return;
+    }
+
+    const quantity = parseInt(document.getElementById('quantityInput').value);
+    
+    const cartItem = {
+      productId: currentProduct.id,
+      productName: currentProduct.name,
+      variantName: selectedVariant.name,
+      price: selectedVariant.price,
+      quantity: quantity,
+      image: currentProduct.images[0]
+    };
+
+    // Check if item already exists
+    const existingIndex = cart.findIndex(item => 
+      item.productId === cartItem.productId && item.variantName === cartItem.variantName
+    );
+
+    if (existingIndex > -1) {
+      cart[existingIndex].quantity += quantity;
+    } else {
+      cart.push(cartItem);
+    }
+
+    updateCartUI();
+    closeProductModal();
+    toggleCart();
+  }
+
+  function toggleCart() {
+    const sidebar = document.getElementById('cartSidebar');
+    sidebar.classList.toggle('active');
+    if (sidebar.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
+  function updateCartUI() {
+    const badge = document.getElementById('cartBadge');
+    const itemsContainer = document.getElementById('cartItems');
+    const footer = document.getElementById('cartFooter');
+
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = totalItems;
+
+    if (cart.length === 0) {
+      itemsContainer.innerHTML = `
+        <div class="cart-empty">
+          <p style="font-size:48px;margin-bottom:16px;">🛒</p>
+          <p>Your cart is empty</p>
+        </div>
+      `;
+      footer.style.display = 'none';
+    } else {
+      itemsContainer.innerHTML = cart.map((item, idx) => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.productName}" class="cart-item-img">
+          <div class="cart-item-info">
+            <div class="cart-item-title">${item.productName}</div>
+            <div class="cart-item-variant">${item.variantName}</div>
+            <div class="cart-item-price">Rp${item.price.toLocaleString('id-ID')} x ${item.quantity}</div>
+            <button class="cart-item-remove" onclick="removeFromCart(${idx})">Remove</button>
+          </div>
+        </div>
+      `).join('');
+
+      const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      document.getElementById('cartTotal').textContent = `Rp${total.toLocaleString('id-ID')}`;
+      footer.style.display = 'block';
+    }
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+  }
+
+  function proceedToCheckout() {
+    if (cart.length === 0) return;
+
+    const checkoutItems = document.getElementById('checkoutItems');
+    checkoutItems.innerHTML = cart.map(item => `
+      <div class="summary-item">
+        <span>${item.productName} - ${item.variantName} (x${item.quantity})</span>
+        <span>Rp${(item.price * item.quantity).toLocaleString('id-ID')}</span>
+      </div>
+    `).join('');
+
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    document.getElementById('checkoutSubtotal').textContent = `Rp${total.toLocaleString('id-ID')}`;
+    document.getElementById('checkoutTotal').textContent = `Rp${total.toLocaleString('id-ID')}`;
+
+    toggleCart();
+    document.getElementById('checkoutModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckoutModal() {
+    document.getElementById('checkoutModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function confirmPayment() {
+    alert('Terima kasih! Pembayaran Anda sedang diproses. Anda akan menerima email konfirmasi segera.');
+    cart = [];
+    updateCartUI();
+    closeCheckoutModal();
+  }
+
+  // Close modal on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeProductModal();
+      closeCheckoutModal();
+      if (document.getElementById('cartSidebar').classList.contains('active')) {
+        toggleCart();
+      }
+    }
+  });
+</script>
 
 </body>
 </html>
