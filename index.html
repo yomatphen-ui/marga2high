@@ -1976,7 +1976,7 @@
     formData.append('file', blob, 'payment_proof.png');
 
     // Send to webhook
-    if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !== 'YOUR_DISCORD_WEBHOOK_URL_HERE') {
+    if (DISCORD_WEBHOOK_URL && DISCORD_WEBHOOK_URL !== 'https://discord.com/api/webhooks/1460261127630880840/9lsGMgWVgtYcxLJFfhYWDgDGi37fBZkZJY2OvqhQFc-Blz51C2caseVilqKXYW8x-tNB') {
       try {
         await fetch(DISCORD_WEBHOOK_URL, {
           method: 'POST',
